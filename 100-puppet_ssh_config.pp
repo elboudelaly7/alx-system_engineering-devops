@@ -1,12 +1,5 @@
-#configure ssh config
+# connect to a server Execute a command
 
-file_line{'Turn off passwd auth':
-path => '/etc/ssh/ssh_config',
-line => 'PasswordAuthentication no'
-}
-
-file_line{'Declare identity file':
-path => '/etc/ssh/ssh_config',
-line => 'IdentityFile ~/.ssh/school'
-
+exec { 'echo "PasswordAuthentication no\nIdentityFile ~/.ssh/school" >> /etc/ssh/ssh_config':
+        path    => '/bin/'
 }
